@@ -1,0 +1,82 @@
+
+  
+  <div>
+    <h1>Image Editor</h1>
+    <h1 routerLink="/MapsUI">MAP</h1>
+  
+    <p>
+      <button
+        (click)="
+          this.inlineCropAspectRatio = this.inlineCropAspectRatio === 1 ? 2 : 1
+        "
+      >
+        Toggle Crop
+      </button>
+    </p>
+  
+    <div style="height: 70vh">
+      <pintura-editor
+        #inlineEditor
+        [options]="editorOptions"
+        [src]="inlineSrc"
+        [imageCropAspectRatio]="inlineCropAspectRatio"
+        (load)="handleInlineLoad($event)"
+        (process)="handleInlineProcess($event)"
+      ></pintura-editor>
+    </div>
+  
+    <p><img *ngIf="inlineResult" [src]="inlineResult" alt="" /></p>
+  
+    <h2>Modal</h2>
+  
+    <button (click)="modalVisible = true">Show Modal</button>
+  
+    <pintura-editor-modal
+      *ngIf="modalVisible"
+      [options]="editorOptions"
+      [src]="modalSrc"
+      [imageCropAspectRatio]="1"
+      (hide)="modalVisible = false"
+      (load)="handleModalLoad($event)"
+      (process)="handleModalProcess($event)"
+    ></pintura-editor-modal>
+  
+    <p><img *ngIf="modalResult" [src]="modalResult" alt="" /></p>
+  
+    <h2>Overlay</h2>
+  
+    <p>
+      <button *ngIf="!overlayVisible" (click)="overlayVisible = true">
+        Edit image
+      </button>
+      <button *ngIf="overlayVisible" (click)="overlayVisible = false">
+        Close editor
+      </button>
+    </p>
+  
+    <p *ngIf="!overlayVisible">
+      <img [src]="overlayResult || overlaySrc" width="512" height="256" alt="" />
+    </p>
+  
+    <div *ngIf="overlayVisible" style="width: 512px; height: 256px">
+      <pintura-editor-overlay
+        [options]="overlayOptions"
+        [src]="overlaySrc"
+        (load)="handleOverlayLoad($event)"
+        (process)="handleOverlayProcess($event)"
+      ></pintura-editor-overlay>
+    </div>
+  
+    <h2>FilePond</h2>
+  
+    <file-pond
+      #myPond
+      [options]="pondOptions"
+      [files]="pondFiles"
+      (oninit)="pondHandleInit()"
+      (onaddfile)="pondHandleAddFile($event)"
+      (onactivatefile)="pondHandleActivateFile($event)"
+      (onpreparefile)="pondHandlePrepareFile($event)"
+    >
+    </file-pond>
+  </div>

@@ -1,0 +1,73 @@
+
+<div>
+  <h1 routerLink="/Imageeditor">Image Editor</h1>
+  <h1 >MAP</h1>
+  <highcharts-chart
+  [Highcharts]="Highcharts"
+  [constructorType]="chartConstructor"
+  [options]="chartOptions"
+  style="width: 100%; display: block"
+  ></highcharts-chart>
+  
+  <table class="map_table">
+      <thead>
+        <tr>
+          <th>STATE</th>
+          <th class="text-center">Active Merchants</th>
+          <th class="text-end">Inactive Merchants</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: #f230d2" class="fw-600">California</td>
+          <td class="text-center">2344</td>
+          <td class="text-end">11</td>
+        </tr>
+        <tr>
+          <td style="color: #d98e04" class="fw-600">Texas</td>
+          <td class="text-center">3421</td>
+          <td class="text-end">32</td>
+        </tr>
+        <tr>
+          <td style="color: #04bfbf" class="fw-600">Arizona</td>
+          <td class="text-center">5425</td>
+          <td class="text-end">55</td>
+        </tr>
+        <tr>
+          <td style="color: #f29a2e" class="fw-600">New York</td>
+          <td class="text-center">2344</td>
+          <td class="text-end">11</td>
+        </tr>
+        <tr>
+          <td style="color: #f20505" class="fw-600">Colorado</td>
+          <td class="text-center">3421</td>
+          <td class="text-end">32</td>
+        </tr>
+        <tr>
+          <td style="color: #024873" class="fw-600">North Dakota</td>
+          <td class="text-center">5425</td>
+          <td class="text-end">55</td>
+        </tr>
+        <tr>
+          <td style="color: #012e40" class="fw-600">South Dakota</td>
+          <td class="text-center">2344</td>
+          <td class="text-end">11</td>
+        </tr>
+        <tr>
+          <td style="color: #594302" class="fw-600">Florida</td>
+          <td class="text-center">3421</td>
+          <td class="text-end">32</td>
+        </tr>
+        <tr>
+          <td style="color: #73412f" class="fw-600">Georgia</td>
+          <td class="text-center">5425</td>
+          <td class="text-end">55</td>
+        </tr>
+        <tr>
+          <td style="color: #bf8c6f" class="fw-600">Alabama</td>
+          <td class="text-center">5425</td>
+          <td class="text-end">55</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
